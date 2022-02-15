@@ -1,0 +1,16 @@
+ async function request() {
+  await fetch("https://projeto-bd2.herokuapp.com/produtos", {
+    headers: {
+      "content-type": "application/json",
+    },
+    method: "GET",
+  }).then(async (response) => {
+    console.log(await response.json());
+    const teste = document.getElementById("teste");
+    for (response of response.json()) {
+      teste.innerHTML(<p>${response.nome}</p>);
+    }
+  });
+}
+
+request();
