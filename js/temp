@@ -5,9 +5,8 @@
     },
     method: "GET",
   }).then(async (response) => {
-    console.log(await response.json());
-    const teste = document.getElementById("teste");
-    for (response of response.json()) {
+
+    for (response of await response.json()) {
       teste.innerHTML(<p>${response.nome}</p>);
     }
   });
